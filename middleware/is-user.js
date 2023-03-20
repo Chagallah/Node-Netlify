@@ -3,7 +3,10 @@ const { verify } = require("jsonwebtoken");
 module.exports = (req, res, next) => {
   // const token = req.get("x-user-auth-token");
   const token =
-    req.headers.authorization || req.body.token || req.query.token || req.headers["x-access-token"];
+    req.headers.authorization ||
+    req.body.token ||
+    req.query.token ||
+    req.headers["x-access-token"];
   if (!token || token === "") {
     req.isAuth = false;
     return res.status(401).send("Authorization failed..");

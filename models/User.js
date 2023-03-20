@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
     },
+    profile: {
+      type: Object,
+    }
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
