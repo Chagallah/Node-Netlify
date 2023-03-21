@@ -163,6 +163,11 @@
     "/api/v1/food/donate": {
       "post": {
         "tags": ["Food donation Module"],
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
         "description": "Create Post for Donation of food in system",
         "parameters": [
           {
@@ -178,6 +183,80 @@
         "responses": {
           "200": {
             "description": "New Food Donation Post is created",
+            "schema": {
+              "$ref": "#/definitions/FoodDonation"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/food/donation/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of donation that we want to find",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Delete Food Donation with given ID",
+        "tags": ["Food donation Module"],
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Food Donation is deleted",
+            "schema": {
+              "$ref": "#/definitions/FoodDonation"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Food Donation with give ID",
+        "tags": ["Food donation Module"],
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Food Donation with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/FoodDonation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Food Donation is updated",
+            "schema": {
+              "$ref": "#/definitions/FoodDonation"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/food/donations": {
+      "get": {
+        "tags": ["Food donation Module"],
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "summary": "Get all food donations in system",
+        "responses": {
+          "200": {
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/FoodDonation"
             }
@@ -261,7 +340,7 @@
               "type": "string",
               "description": "type of donation"
             },
-            "donatinName": {
+            "donationName": {
               "type": "string",
               "description": "name of donation"
             }
@@ -287,13 +366,18 @@
           "type": "string",
           "description": "mobileNumber of the store owner"
         },
-        "latitude": {
-          "type": "string",
-          "description": "latitude of the store"
-        },
-        "longitude": {
-          "type": "string",
-          "description": "longitude of the store"
+        "geoLocation": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "string",
+              "description": "latitude of the store"
+            },
+            "longitude": {
+              "type": "string",
+              "description": "longitude of the store"
+            }
+          }
         },
         "statusAvailability": {
           "type": "object",
