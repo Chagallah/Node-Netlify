@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "backend-j5um.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
@@ -25,7 +25,6 @@
       "description": "API for Review in the system"
     }
   ],
-  "schemes": ["http"],
   "consumes": ["application/json"],
   "securityDefinitions": {
     "Authorization": {
