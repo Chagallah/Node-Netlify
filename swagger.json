@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "https://backend-j5um.onrender.com/",
+  "host": "backend-j5um.onrender.com",
   "basePath": "/",
   "tags": [
     {
