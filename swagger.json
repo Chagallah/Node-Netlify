@@ -25,7 +25,6 @@
       "description": "API for Review in the system"
     }
   ],
-  "consumes": ["application/json"],
   "securityDefinitions": {
     "Authorization": {
       "type": "apiKey",
